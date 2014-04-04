@@ -1,6 +1,3 @@
-silent_fail_check
-=================
-
 # SilentFailCheck
 
 This gem aims to track and log silent failure.
