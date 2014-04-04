@@ -39,7 +39,7 @@ end
 
 In this example, it will check and log validation errors happened on :keyname and :value 
 
-Don't use it in production.
+Don't use it in production. It's a first draft, logging isn't available yet.
 
 ## Contributing
 
