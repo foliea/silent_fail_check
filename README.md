@@ -20,7 +20,7 @@ Or install it yourself as:
 
 For now, it's only working with ActiveRecord::Base objects.
 
-`SettingModel`:
+`app/models/setting.rb`:
 
 ```ruby
 require 'silent_fail_check'
