@@ -18,6 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
+Don't use it in production.
 
 ## Contributing
 
