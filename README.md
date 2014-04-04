@@ -20,6 +20,8 @@ Or install it yourself as:
 
 For now, it's only working with ActiveRecord::Base objects.
 
+Check this example below :
+
 `app/models/setting.rb`:
 
 ```ruby
@@ -35,6 +37,7 @@ class Setting < ActiveRecord::Base
 end
 ```
 
+In this example, it will check and log validation errors happened on :keyname and :value 
 
 Don't use it in production.
 
