@@ -18,6 +18,24 @@ Or install it yourself as:
 
 ## Usage
 
+For now, it's only working with ActiveRecord::Base objects.
+
+`SettingModel`:
+
+```ruby
+require 'silent_fail_check'
+
+class Setting < ActiveRecord::Base
+  after_save :reload
+
+  validates :keyname, :value, presence: true
+  validates :keyname, uniqueness: true
+
+  silent_fail_check :validation, :keyname, :value
+end
+```
+
+
 Don't use it in production.
 
 ## Contributing
