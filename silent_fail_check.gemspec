@@ -16,9 +16,12 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec', '~> 2.3'
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'pry'
-  
+
   s.add_dependency 'activerecord', '~> 4.0'
 
-  s.files        = ['lib/silent_fail_check.rb']
+  s.files = [
+              'lib/silent_fail_check.rb',
+              'lib/silent_fail_logger.rb'
+            ]
   s.require_path = 'lib'
 end
