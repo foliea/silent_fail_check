@@ -29,15 +29,14 @@ Check this example below:
 ```ruby
 require 'silent_fail_check'
 
-class Setting < ActiveRecord::Base
-  validates :keyname, :value, presence: true
-  validates :keyname, uniqueness: true
+class User < ActiveRecord::Base
+  validates :connection_time, numericality: true
 
-  silent_fail_check :validation, :keyname, :value
+  silent_fail_check :validation, :connection_time
 end
 ```
 
-In this example, it will check and log validation errors happened on :keyname and :value 
+In this example, it will check and log validation errors happened on :connection_time
 
 Don't use it in production. It's a first draft, logging isn't available yet.
 
