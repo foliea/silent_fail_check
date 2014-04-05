@@ -24,7 +24,7 @@ For now, it's only working with ActiveRecord::Base objects.
 
 Check this example below:
 
-`app/models/setting.rb`
+`app/models/user.rb`
 
 ```ruby
 require 'silent_fail_check'
