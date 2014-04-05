@@ -1,4 +1,5 @@
 require 'active_record'
+require 'silent_fail_logger'
 
 module SilentFailCheck
   CheckParameters = Struct.new(:sym, :args, :block)
@@ -8,7 +9,6 @@ module SilentFailCheck
     include InstanceMethods
 
     @check_parameters = CheckParameters.new(sym, args, block)
-
     method_name = "add_#{sym}_fail_check"
     send(method_name) if respond_to?(method_name, true)
   end
@@ -35,7 +35,7 @@ module SilentFailCheck
 
       if p.block.nil?
         p.args.each do |a|
-          puts "#{self.class} : #{a} #{self.errors[a]}" if self.errors[a].present?
+          SilentFailLogger.add("#{self.class} : #{a} #{self.errors[a]}") if self.errors[a].present?
         end
       else
         p.args.collect &p.block
