@@ -70,13 +70,13 @@ In this case, SilentFailCheck will check and log validation errors happened on :
 Default configuration method is:
 
 ```ruby
-SilentFailLog.configure
+SilentFailCheck::Logger.configure
 ```
 
 If your log model has a different schema, you can redefine columns:
 
 ```ruby
-SilentFailLog.configure(
+SilentFailCheck::Logger.configure(
   model:   SilentFailLog,     # model class name as source
   message: 'MESSAGE_FIELD'    # field that contains name
 )
