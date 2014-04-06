@@ -65,6 +65,23 @@ end
 
 In this case, SilentFailCheck will check and log validation errors happened on :connection_time
 
+### Configuration
+
+Default configuration method is:
+
+```ruby
+SilentFailLog.configure
+```
+
+If your log model has a different schema, you can redefine columns:
+
+```ruby
+SilentFailLog.configure(
+  model:   SilentFailLog,     # model class name as source
+  message: 'MESSAGE_FIELD'    # field that contains name
+)
+```
+
 ## Contributing
 
 1. Fork it
