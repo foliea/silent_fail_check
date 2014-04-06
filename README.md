@@ -22,7 +22,7 @@ Or install it yourself as:
 
 SilentFailCheck is designed to work with ActiveRecord model. Only ActiveRecord >= 4.0.0 is supported.
 
-# Setup
+### Setup
 
 In order to use SilentFailCheck you should have a source table, similar to this:
 
