@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    silent_fail_check (0.0.1)
+    silent_fail_check (0.0.3)
       activerecord (~> 4.0)
 
 GEM

@@ -1,5 +1,5 @@
 class SilentFailLog < ActiveRecord::Base
-
+  validates :message, presence: true
 end
 
 class User < ActiveRecord::Base
