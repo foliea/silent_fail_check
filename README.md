@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
 end
 ```
 
-In this example, SilentFailCheck will check and log validations errors happened on :connection_time
+In this case, SilentFailCheck will check and log validation errors happened on :connection_time
 
 ## Contributing
 
