@@ -2,8 +2,6 @@
 
 This gem aims to track and log silent failure.
 
-https://rubygems.org/gems/silent_fail_check
-
 ## Installation
 
 Add this line to your application's Gemfile:
