@@ -20,9 +20,36 @@ Or install it yourself as:
 
 ## Usage
 
-For now, it's only working with ActiveRecord::Base objects.
+SilentFailCheck is designed to work with ActiveRecord model. Only ActiveRecord >= 4.0.0 is supported.
 
-Check this example below:
+# Setup
+
+In order to use SilentFailCheck you should have a source table, similar to this:
+
+```ruby
+class CreateSilentFailLog < ActiveRecord::Migration
+  def self.up
+    create_table :silent_fail_logs do |t|
+      t.string :message
+      t.timestamps
+    end
+  end
+
+  def self.down
+    drop_table :silent_fail_logs
+  end
+end
+```
+
+Simple model with validations should look like this:
+
+```ruby
+class SilentFailLog < ActiveRecord::Base
+  validates :message, presence: true
+end
+```
+
+You can use SilentFailCheck like this:
 
 `app/models/user.rb`
 
@@ -37,8 +64,6 @@ end
 ```
 
 In this example, it will check and log validation errors happened on :connection_time
-
-Don't use it in production. It's a first draft, logging isn't available yet.
 
 ## Contributing
 
