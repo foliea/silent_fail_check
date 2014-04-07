@@ -11,7 +11,7 @@ module SilentFailCheck
       end
 
       def add message
-        self.configure if !@is_configured
+        self.configure if !@@is_configured
         @@options[:model].send(:create, @@options[:message].to_sym => message)
       end
     end
