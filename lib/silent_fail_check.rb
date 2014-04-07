@@ -11,7 +11,7 @@ module SilentFailCheck
 
       @check_parameters = CheckParameters.new(sym, args, block)
       method_name = "add_#{sym}_fail_check"
-      send(method_name) if respond_to?(method_name, true)
+      send(method_name) if respond_to?(method_name, include_all: true)
     end
 
     module ClassMethods
@@ -39,7 +39,7 @@ module SilentFailCheck
             Logger.add("#{self.class} : #{a} #{self.errors[a]}") if self.errors[a].present?
           end
         else
-          p.args.collect &p.block
+          p.args.map &p.block
         end
       end
     end

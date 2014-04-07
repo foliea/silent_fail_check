@@ -3,7 +3,7 @@ module SilentFailCheck
     @@options = {}
     @@is_configured = false
 
-    def self.configure opts={}
+    def self.configure opts = {}
       @@options[:model] = opts[:model] || SilentFailLog
       @@options[:message] = opts[:message] || 'message'
       @@is_configured = true
