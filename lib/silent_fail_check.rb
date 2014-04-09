@@ -44,6 +44,5 @@ module SilentFailCheck
       end
     end
   end
-
   ActiveRecord::Base.extend Models
 end
