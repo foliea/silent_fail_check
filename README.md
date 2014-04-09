@@ -52,8 +52,6 @@ You can use SilentFailCheck like this:
 `app/models/user.rb`
 
 ```ruby
-require 'silent_fail_check'
-
 class User < ActiveRecord::Base
   validates :connection_time, numericality: true
 
