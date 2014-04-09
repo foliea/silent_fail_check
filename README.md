@@ -42,6 +42,8 @@ end
 Simple model with validations should look like this:
 
 ```ruby
+require 'silent_fail_check'
+
 class SilentFailLog < ActiveRecord::Base
   validates :message, presence: true
 end
