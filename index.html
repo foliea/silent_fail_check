@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Silent fail check by folieadrien</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Silent fail check</h1>
+        <p>SilentFailCheck is a lightweight gem to track and log silent failure</p>
+
+        <p class="view"><a href="https://github.com/folieadrien/silent_fail_check">View the Project on GitHub <small>folieadrien/silent_fail_check</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/folieadrien/silent_fail_check/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/folieadrien/silent_fail_check/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/folieadrien/silent_fail_check">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="silentfailcheck" class="anchor" href="#silentfailcheck"><span class="octicon octicon-link"></span></a>SilentFailCheck</h1>
+
+<p>This gem aims to track and log silent failure.</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Add this line to your application's Gemfile:</p>
+
+<pre><code>gem 'silent_fail_check'
+</code></pre>
+
+<p>And then execute:</p>
+
+<pre><code>$ bundle
+</code></pre>
+
+<p>Or install it yourself as:</p>
+
+<pre><code>$ gem install silent_fail_check
+</code></pre>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>SilentFailCheck is designed to work with ActiveRecord model. Only ActiveRecord &gt;= 4.0.0 is supported.</p>
+
+<h3>
+<a name="setup" class="anchor" href="#setup"><span class="octicon octicon-link"></span></a>Setup</h3>
+
+<p>In order to use SilentFailCheck you should have a source table, similar to this:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="k">class</span> <span class="nc">CreateSilentFailLog</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">up</span>
+    <span class="n">create_table</span> <span class="ss">:silent_fail_logs</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+      <span class="n">t</span><span class="o">.</span><span class="n">string</span> <span class="ss">:message</span>
+      <span class="n">t</span><span class="o">.</span><span class="n">timestamps</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">down</span>
+    <span class="n">drop_table</span> <span class="ss">:silent_fail_logs</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>Simple model with validations should look like this:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s1">'silent_fail_check'</span>
+
+<span class="k">class</span> <span class="nc">SilentFailLog</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">validates</span> <span class="ss">:message</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>You can use SilentFailCheck like this:</p>
+
+<p><code>app/models/user.rb</code></p>
+
+<div class="highlight highlight-ruby"><pre><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">validates</span> <span class="ss">:connection_time</span><span class="p">,</span> <span class="ss">numericality</span><span class="p">:</span> <span class="kp">true</span>
+
+  <span class="n">silent_fail_check</span> <span class="ss">:validation</span><span class="p">,</span> <span class="ss">:connection_time</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>In this case, SilentFailCheck will check and log validation errors happened on :connection_time</p>
+
+<h3>
+<a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Configuration</h3>
+
+<p>Default configuration method is:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="no">SilentFailCheck</span><span class="o">::</span><span class="no">Logger</span><span class="o">.</span><span class="n">configure</span>
+</pre></div>
+
+<p>If your log model has a different schema, you can redefine columns:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="no">SilentFailCheck</span><span class="o">::</span><span class="no">Logger</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span>
+  <span class="ss">model</span><span class="p">:</span>   <span class="no">SilentFailLog</span><span class="p">,</span>     <span class="c1"># model class name as source</span>
+  <span class="ss">message</span><span class="p">:</span> <span class="s1">'MESSAGE_FIELD'</span>    <span class="c1"># field that contains name</span>
+<span class="p">)</span>
+</pre></div>
+
+<h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/folieadrien">folieadrien</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
