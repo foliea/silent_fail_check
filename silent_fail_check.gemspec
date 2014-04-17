@@ -6,11 +6,10 @@ Gem::Specification.new do |s|
   s.version     = SilentFailCheck::VERSION
   s.platform    = Gem::Platform::RUBY
   s.summary     = 'silent_fail_check'
-  s.description = 'Handle silent failure on ActiveRecord::Base'
+  s.description = 'Handle silent failure on ActiveRecord models'
   s.authors     = ['Adrien Folie']
   s.email       = 'folie.adrien@gmail.com'
   s.homepage    = 'https://github.com/folieadrien/silent_fail_check'
-  s.license     = 'MIT'
 
   s.add_development_dependency 'bundler', '~> 1.0'
   s.add_development_dependency 'rspec', '~> 2.3'
