@@ -1,6 +1,7 @@
 # SilentFailCheck 
-[![Code Climate](https://codeclimate.com/github/folieadrien/silent_fail_check.png)](https://codeclimate.com/github/folieadrien/silent_fail_check)
 [![Gem Version](https://badge.fury.io/rb/silent_fail_check.svg)](http://badge.fury.io/rb/silent_fail_check)
+[![Code Climate](https://codeclimate.com/github/folieadrien/silent_fail_check.png)](https://codeclimate.com/github/folieadrien/silent_fail_check)
+
 This gem aims to track and log silent failure.
 
 ## Installation
