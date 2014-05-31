@@ -1,4 +1,4 @@
-# SilentFailCheck
+# SilentFailCheck [![Code Climate](https://codeclimate.com/github/folieadrien/silent_fail_check.png)](https://codeclimate.com/github/folieadrien/silent_fail_check)
 
 This gem aims to track and log silent failure.
 
