@@ -1,10 +1,12 @@
 require 'spec_helper'
 
-describe 'silent_fail_logger' do
-  context 'logger :' do
-    it 'add new log' do
+describe SilentFailCheck::Logger do
+  
+  context 'when logger is used' do
+
+    it 'adds new log' do
       SilentFailCheck::Logger.add("Test")
-      SilentFailLog.count.should be > 0
+      expect(SilentFailLog.count).to be > 0
     end
   end
 end
