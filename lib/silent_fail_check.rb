@@ -5,8 +5,8 @@ module SilentFailCheck
   module Models
     CheckParameters = Struct.new(:sym, :args, :block)
 
-    def silent_fail_check sym, *args, &block
-      extend  ClassMethods
+    def silent_fail_check(sym, *args, &block)
+      extend ClassMethods
       include InstanceMethods
 
       @check_parameters = CheckParameters.new(sym, args, block)
@@ -15,12 +15,9 @@ module SilentFailCheck
     end
 
     module ClassMethods
-
       private
 
-      def check_parameters
-        @check_parameters
-      end
+      attr_reader :check_parameters
 
       def add_validation_fail_check
         after_validation "#{check_parameters.sym}_fail_check"
@@ -28,7 +25,6 @@ module SilentFailCheck
     end
 
     module InstanceMethods
-
       private
 
       def validation_fail_check
@@ -36,10 +32,10 @@ module SilentFailCheck
 
         if p.block.nil?
           p.args.each do |a|
-            Logger.add("#{self.class} : #{a} #{self.errors[a]}") if self.errors[a].present?
+            Logger.add("#{self.class} : #{a} #{errors[a]}") if errors[a].present?
           end
         else
-          p.args.map &p.block
+          p.args.map(&p.block)
         end
       end
     end

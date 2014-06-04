@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path("../lib/silent_fail_check/version", __FILE__)
+require File.expand_path('../lib/silent_fail_check/version', __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = 'silent_fail_check'
@@ -19,8 +19,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'activerecord', '~> 4.0'
 
   s.files = [
-              'lib/silent_fail_check.rb',
-              'lib/silent_fail_logger.rb'
-            ]
+    'lib/silent_fail_check.rb',
+    'lib/silent_fail_logger.rb'
+  ]
   s.require_path = 'lib'
 end
