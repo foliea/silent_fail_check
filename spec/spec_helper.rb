@@ -1,6 +1,8 @@
 require 'pry'
 require 'silent_fail_check'
+require 'coveralls'
 
+Coveralls.wear! if ENV['COVERALLS_REPO_TOKEN']
 I18n.enforce_available_locales = false
 
 ActiveRecord::Base.establish_connection(adapter: 'sqlite3',
