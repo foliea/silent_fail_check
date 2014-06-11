@@ -9,6 +9,7 @@ Gem::Specification.new do |s|
   s.description = 'Handle silent failure on ActiveRecord models'
   s.authors     = ['Adrien Folie']
   s.email       = 'folie.adrien@gmail.com'
+  s.license     = 'MIT'
   s.homepage    = 'https://github.com/folieadrien/silent_fail_check'
 
   s.add_development_dependency 'bundler', '~> 1.0'
