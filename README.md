@@ -93,4 +93,4 @@ SilentFailCheck::Logger.configure(
 
 ## Licensing
 
-silent_fail_check is licensed under the Apache License, Version 2.0. See LICENSE for full license text.
+silent_fail_check is licensed under the MIT License. See LICENSE for full license text.
