@@ -90,3 +90,7 @@ SilentFailCheck::Logger.configure(
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Licensing
+
+silent_fail_check is licensed under the Apache License, Version 2.0. See LICENSE for full license text.
