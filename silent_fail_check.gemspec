@@ -21,6 +21,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'activerecord', '~> 4.0'
 
+  s.required_ruby_version = '~> 2.0'
+
   s.files = [
     'lib/silent_fail_check.rb',
     'lib/silent_fail_logger.rb'
