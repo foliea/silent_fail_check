@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/folieadrien/silent_fail_check.svg?branch=master)](https://travis-ci.org/folieadrien/silent_fail_check)
 [![Gem Version](https://badge.fury.io/rb/silent_fail_check.svg)](http://badge.fury.io/rb/silent_fail_check)
 [![Code Climate](https://codeclimate.com/github/folieadrien/silent_fail_check.png)](https://codeclimate.com/github/folieadrien/silent_fail_check)
-[![Coverage Status](https://coveralls.io/repos/folieadrien/silent_fail_check/badge.png?branch=master)](https://coveralls.io/r/folieadrien/silent_fail_check?branch=master)
+[![Coverage Status](https://coveralls.io/repos/folieadrien/silent_fail_check/badge.svg?branch=master)](https://coveralls.io/r/folieadrien/silent_fail_check?branch=master)
 
 This gem aims to track and log silent failure.
 
