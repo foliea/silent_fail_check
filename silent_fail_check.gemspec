@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'activerecord', '~> 4.0'
 
-  s.required_ruby_version = '~> 1.9.3'
+  s.required_ruby_version = '>= 1.9.3'
 
   s.files = [
     'lib/silent_fail_check.rb',
