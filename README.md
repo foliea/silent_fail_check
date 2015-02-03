@@ -84,6 +84,16 @@ SilentFailCheck::Logger.configure(
 )
 ```
 
+### Test
+
+To run the test suite:
+
+    bundle install
+    
+Then:
+    
+    bundle exec rspec
+
 ## Contributing
 
 1. Fork it
