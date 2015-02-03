@@ -84,7 +84,7 @@ SilentFailCheck::Logger.configure(
 )
 ```
 
-### Test
+### Tests
 
 To run the test suite:
 
