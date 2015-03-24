@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.authors     = ['Adrien Folie']
   s.email       = 'folie.adrien@gmail.com'
   s.license     = 'MIT'
-  s.homepage    = 'https://github.com/folieadrien/silent_fail_check'
+  s.homepage    = 'https://github.com/foliea/silent_fail_check'
 
   s.add_development_dependency 'bundler', '~> 1.0'
   s.add_development_dependency 'rspec', '~> 2.3'
