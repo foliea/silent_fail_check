@@ -1,8 +1,10 @@
 require 'pry'
 require 'silent_fail_check'
-require 'coveralls'
 
-Coveralls.wear! if ENV['COVERALLS_REPO_TOKEN']
+if ENV['CODECLIMATE_REPO_TOKEN']
+  require 'codeclimate-test-reporter'
+  CodeClimate::TestReporter.start
+end
 
 I18n.enforce_available_locales = false
 
