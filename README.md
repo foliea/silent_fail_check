@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/foliea/silent_fail_check.svg?branch=master)](https://travis-ci.org/foliea/silent_fail_check)
 [![Gem Version](https://badge.fury.io/rb/silent_fail_check.svg)](http://badge.fury.io/rb/silent_fail_check)
 [![Code Climate](https://codeclimate.com/github/foliea/silent_fail_check.png)](https://codeclimate.com/github/foliea/silent_fail_check)
+[![Test Coverage](https://codeclimate.com/github/foliea/silent_fail_check/badges/coverage.svg)](https://codeclimate.com/github/foliea/silent_fail_check)
 
 This gem aims to track and log silent failure.
 
