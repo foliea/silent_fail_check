@@ -1,10 +1,9 @@
-require 'pry'
-require 'silent_fail_check'
-
 if ENV['CODECLIMATE_REPO_TOKEN']
   require 'codeclimate-test-reporter'
   CodeClimate::TestReporter.start
 end
+
+require 'silent_fail_check'
 
 I18n.enforce_available_locales = false
 
